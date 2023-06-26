@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
-import jakarta.validation.constraints.NotNull
 import java.util.Date
 
 @Entity
@@ -16,11 +15,11 @@ class Projects {
     @Id
     @Column(updatable = false)
     var id:Long?= null
+    @Column (name = "id_users")
+    var idUsers:Int?= null
     var title: String?= null
+    var budget: Double? =null
     var description: String?= null
-    @NotNull(message = "Campo Obligatorio")
-    var id_users:Int?= null
-    var start_date: Date?=null
-    var estimated_duration: Int?= null
-    var budget: Double?= null
+    @Column (name = "start_date")
+    var startDate: Date?=null
 }

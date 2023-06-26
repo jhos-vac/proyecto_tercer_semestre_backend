@@ -16,6 +16,5 @@ class Users {
     var id:Long?= null
     var fullname:String?= null
     var email:String?= null
-    var password: String?= null
     var contact: String?= null
 }

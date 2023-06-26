@@ -1,55 +1,36 @@
-
-CREATE TABLE IF NOT EXISTS users(
+CREATE TABLE IF NOT EXISTS users (
     id SERIAL,
-    fullname VARCHAR(50),
-    email VARCHAR(100),
-    password VARCHAR(100),
-    contact VARCHAR(20),
-    PRIMARY KEY (id)
-);
-
-
-CREATE TABLE IF NOT EXISTS skills(
-    id SERIAL,
-    nombre VARCHAR(50),
-    description VARCHAR(200),
-    hourly_rate DECIMAL(10, 2),
-    availability VARCHAR(100),
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE IF NOT EXISTS workers(
-    id SERIAL,
-    id_users INT NOT NULL,
-    biography VARCHAR(500),
-    ratings DECIMAL(3, 2),
-    review INT,
+    fullname VARCHAR(100),
+    email VARCHAR (100),
+    contact VARCHAR (15),
     PRIMARY KEY (id),
-    FOREIGN KEY (id_users) REFERENCES users(id)
 );
 
-CREATE TABLE IF NOT EXISTS projects(
+
+CREATE TABLE IF NOT EXISTS project(
     id SERIAL,
-    title VARCHAR(100),
-    description VARCHAR(500),
     id_users INT NOT NULL,
+    title VARCHAR(150),
+    budget DECIMAL(5,2),
+    decripcion VARCHAR (100),
     start_date DATE,
-    estimated_duration INT,
-    budget DECIMAL(12, 2),
     PRIMARY KEY (id),
     FOREIGN KEY (id_users) REFERENCES users(id)
 );
 
-CREATE TABLE IF NOT EXISTS requests(
+CREATE TABLE IF NOT EXISTS apply(
     id SERIAL,
     id_users INT NOT NULL,
     id_project INT NOT NULL,
-    id_worker INT NOT NULL,
-    states  VARCHAR(20),
-    date_requests DATE,
-    response_date DATE,
+    states VARCHAR (100),
     PRIMARY KEY (id),
-    FOREIGN KEY (id_users) REFERENCES users(id),
-    FOREIGN KEY (id_project) REFERENCES projects(id),
-    FOREIGN KEY (id_worker) REFERENCES workers(id)
+    FOREIGN KEY (id_users) REFERENCES users(id)
+    FOREIGN KEY (id_project) REFERENCES project(id)
+);
+
+CREATE TABLE IF NOT EXISTS skills(
+    id SERIAL,
+    id_users INT NOT NULL,
+    fullname VARCHAR (100),
+    descirption VARCHAR (200),
 );

@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException
 import java.lang.Exception
 
 @Service
-class projectsService {
+class SkillsService {
     @Autowired
     lateinit var projectsRepository: projectsRepository
     fun list() :List<Projects>{

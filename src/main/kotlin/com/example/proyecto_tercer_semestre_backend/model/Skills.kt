@@ -14,8 +14,8 @@ class Skills {
     @Id
     @Column(updatable = false)
     var id: Long?= null
-    var nombre:String?=null
+    @Column (name = "id_users")
+    var idUsers:Int?= null
+    var fullname:String? =null
     var description:String?= null
-    var hourly_rate: Double?= null
-    var availability:String?=null
 }
