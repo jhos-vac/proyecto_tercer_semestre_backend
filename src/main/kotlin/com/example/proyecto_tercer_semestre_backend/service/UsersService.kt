@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 import java.lang.Exception
 @Service
-class usersService {
+class UsersService {
     @Autowired
     lateinit var usersRepository: usersRepository
     fun list() :List<Users>{

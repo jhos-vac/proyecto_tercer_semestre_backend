@@ -1,17 +1,18 @@
 package com.example.proyecto_tercer_semestre_backend.controller
 
 import com.example.proyecto_tercer_semestre_backend.model.Skills
-import com.example.proyecto_tercer_semestre_backend.service.skillsService
+import com.example.proyecto_tercer_semestre_backend.service.SkillsService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping
-class skillsController {
+@RequestMapping("/skills")
+@CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.PUT, RequestMethod.DELETE])
+class SkillsController {
     @Autowired
-    lateinit var skillsService: skillsService
+    lateinit var skillsService: SkillsService
     @GetMapping
     fun list():List<Skills>{
         return skillsService.list()

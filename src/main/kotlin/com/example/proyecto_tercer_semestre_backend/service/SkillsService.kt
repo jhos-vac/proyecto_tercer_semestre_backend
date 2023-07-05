@@ -7,10 +7,9 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 import java.lang.Exception
-import java.sql.DatabaseMetaData
 
 @Service
-class skillsService {
+class SkillsService {
     @Autowired
     lateinit var skillsRepository: skillsRepository
     fun list():List <Skills>{
@@ -20,8 +19,7 @@ class skillsService {
     fun save (skills: Skills):Skills{
         return skillsRepository.save(skills)
     }
-
-    fun  update (skills: Skills):Skills{
+    fun update(skills: Skills):Skills {
         try {
             skillsRepository.findById(skills.id)
                 ?:throw  Exception("id no existe")
@@ -31,18 +29,19 @@ class skillsService {
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
-
-    fun updateData (skills: Skills):Skills
+    fun updateData (skills: Skills): Skills
     {
         try {
             val response= skillsRepository.findById(skills.id)
                 ?:throw Exception("ID no existe")
             response.apply {
-                description = skills.description
+                fullname = skills.fullname
             }
-            return skillsRepository.save(skills)
-        }catch  (ex: Exception){
+            return skillsRepository.save(response)
+        }
+        catch (ex: Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
+
 }

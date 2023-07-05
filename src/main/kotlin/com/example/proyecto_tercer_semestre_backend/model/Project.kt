@@ -9,8 +9,8 @@ import jakarta.persistence.Table
 import java.util.Date
 
 @Entity
-@Table(name = "projects")
-class Projects {
+@Table(name = "project")
+class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(updatable = false)

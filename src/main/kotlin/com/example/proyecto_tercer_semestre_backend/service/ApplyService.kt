@@ -1,7 +1,9 @@
 package com.example.proyecto_tercer_semestre_backend.service
 
 import com.example.proyecto_tercer_semestre_backend.model.Apply
-import com.example.proyecto_tercer_semestre_backend.repository.requestsRepository
+import com.example.proyecto_tercer_semestre_backend.model.ApplyView
+import com.example.proyecto_tercer_semestre_backend.repository.applyRepository
+import com.example.proyecto_tercer_semestre_backend.repository.applyViewRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -9,39 +11,43 @@ import org.springframework.web.server.ResponseStatusException
 import java.lang.Exception
 
 @Service
-class requestsService {
+class ApplyService {
     @Autowired
-    lateinit var requestsRepository: requestsRepository
+    lateinit var applyRepository: applyRepository
+    @Autowired
+    lateinit var applyViewRepository: applyViewRepository
+
+    fun listView():List<ApplyView>{
+        return applyViewRepository.findAll()
+    }
     fun list() :List<Apply>{
-        return requestsRepository.findAll()
+        return applyRepository.findAll()
     }
-
     fun save (apply: Apply): Apply {
-        return requestsRepository.save(apply)
+        return applyRepository.save(apply)
     }
-
-    fun update(apply: Apply): Apply {
+    fun update(apply: Apply):Apply{
         try {
-            requestsRepository.findById(apply.id)
+            applyRepository.findById(apply.id)
                 ?:throw  Exception("id no existe")
-            return requestsRepository.save(apply)
+            return applyRepository.save(apply)
         }
         catch (ex: Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
-    fun updateData (apply: Apply): Apply {
+    fun updateData (apply: Apply): Apply
+    {
         try {
-            val response= requestsRepository.findById(apply.id)
+            val response= applyRepository.findById(apply.id)
                 ?:throw Exception("ID no existe")
             response.apply {
-                states= apply.states
+                states = apply.states
             }
-            return requestsRepository.save(response)
+            return applyRepository.save(response)
         }
         catch (ex: Exception){
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
-
 }

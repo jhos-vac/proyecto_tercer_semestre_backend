@@ -1,23 +1,19 @@
 package com.example.proyecto_tercer_semestre_backend.model
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.Table
-
+import jakarta.persistence.*
 
 @Entity
-@Table(name = "apply")
-class Apply {
+@Table(name = "apply_view")
+class ApplyView {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     @Id
     @Column(updatable = false)
     var id:Long?= null
     @Column(name = "id_users")
     var idUsers:Int?= null
-    @Column (name = "id_project")
+    @Column(name = "id_project")
     var idProject:Int?= null
     var states:String?= null
+    var user:String?=null
+    var project:String?=null
 }
