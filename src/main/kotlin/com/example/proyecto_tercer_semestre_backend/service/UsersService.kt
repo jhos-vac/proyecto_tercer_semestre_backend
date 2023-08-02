@@ -1,7 +1,7 @@
 package com.example.proyecto_tercer_semestre_backend.service
 
 import com.example.proyecto_tercer_semestre_backend.model.Users
-import com.example.proyecto_tercer_semestre_backend.repository.usersRepository
+import com.example.proyecto_tercer_semestre_backend.repository.UsersRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
@@ -10,7 +10,7 @@ import java.lang.Exception
 @Service
 class UsersService {
     @Autowired
-    lateinit var usersRepository: usersRepository
+    lateinit var usersRepository: UsersRepository
     fun list() :List<Users>{
         return usersRepository.findAll()
     }

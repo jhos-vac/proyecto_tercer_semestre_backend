@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ProyectoTercerSemestreBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="proyecto_tercer_semestre_backend" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.proyecto_tercer_semestre_backend.ProyectoTercerSemestreBackendApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

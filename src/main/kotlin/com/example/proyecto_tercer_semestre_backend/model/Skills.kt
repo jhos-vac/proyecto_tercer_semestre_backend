@@ -14,8 +14,7 @@ class Skills {
     @Id
     @Column(updatable = false)
     var id: Long?= null
-    @Column (name = "id_users")
-    var idUsers:Int?= null
-    var fullname:String? =null
+    @Column (name = "id_project")
+    var idProject:Int?= null
     var description:String?= null
 }

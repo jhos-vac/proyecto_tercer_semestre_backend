@@ -9,17 +9,19 @@ import jakarta.persistence.Table
 import java.util.Date
 
 @Entity
-@Table(name = "project")
+@Table(name = "projects")
 class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(updatable = false)
     var id:Long?= null
-    @Column (name = "id_users")
-    var idUsers:Int?= null
     var title: String?= null
-    var budget: Double? =null
+    var estimate: Int? = null
     var description: String?= null
-    @Column (name = "start_date")
-    var startDate: Date?=null
+    @Column (name = "estimated_time")
+    var estimatedTime: Date?=null
+    @Column (name = "work_level")
+    var workLevel: String?=null
+    @Column (name = "type_work")
+    var typeWork: String?=null
 }
