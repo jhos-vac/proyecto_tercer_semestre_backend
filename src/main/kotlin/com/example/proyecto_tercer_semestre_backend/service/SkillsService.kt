@@ -12,7 +12,7 @@ import java.lang.Exception
 class SkillsService {
     @Autowired
     lateinit var skillsRepository: SkillsRepository
-    fun list():List <Skills>{
+    fun list(): List<Skills>{
         return skillsRepository.findAll()
     }
 

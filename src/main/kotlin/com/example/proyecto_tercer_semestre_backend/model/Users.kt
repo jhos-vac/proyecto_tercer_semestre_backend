@@ -17,4 +17,7 @@ class Users {
     var fullname:String?= null
     var email:String?= null
     var contact: String?= null
+    var states:String?= null
+    @Column(name = "pplication_skill")
+    var pplicationSkill:String?= null
 }

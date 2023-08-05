@@ -14,7 +14,7 @@ class SkillsController {
     @Autowired
     lateinit var skillsService: SkillsService
     @GetMapping
-    fun list():List<Skills>{
+    fun list(): List<Skills>{
         return skillsService.list()
     }
 
