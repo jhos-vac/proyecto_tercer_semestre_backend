@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS users(
     email VARCHAR (100),
     contact VARCHAR (15),
     states VARCHAR (100),
-    application_skill VARCHAR(100)
-    PRIMARY KEY (id)
-    FOREIGN KEY (application_skill) REFERENCES skills(id)
+    id_skill INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_skill) REFERENCES skills(id)
 );

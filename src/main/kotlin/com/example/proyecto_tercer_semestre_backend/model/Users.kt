@@ -18,6 +18,6 @@ class Users {
     var email:String?= null
     var contact: String?= null
     var states:String?= null
-    @Column(name = "pplication_skill")
-    var pplicationSkill:String?= null
+    @Column(name = "id_skill")
+    var idSkill:Int?= null
 }
