@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS projects(
     id SERIAL,
     title VARCHAR(150),
     estimate DECIMAL(10,5),
-    description VARCHAR (100),
+    description VARCHAR (1000),
     estimated_time DATE,
     work_level VARCHAR (50),
     type_work VARCHAR (50),
